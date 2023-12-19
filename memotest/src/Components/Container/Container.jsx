@@ -6,7 +6,7 @@ import arrayCard from "../../Json/arrayCard"
  
 function Container () {
 
-    const repeticiones = 6
+    const repeticiones = 25
 
     const [ count , setCount ] = useState ()
     const [ click , setClick ] = useState (0)
@@ -39,7 +39,7 @@ function Container () {
       
         const newArray =  arrayCard.sort(() => Math.random() - 0.5);
         setArrayCards(newArray)
-        setTimes(8)
+        setTimes(repeticiones)
         setClick(0)
         setCount(2)
     }
@@ -120,7 +120,7 @@ function Container () {
     return (
 
         <div>
-            <p>CARD COMPONENT</p>
+            <p>número de intentos</p>
             <h2>{times}</h2>
             <hr></hr>
             <div className="conteiner">

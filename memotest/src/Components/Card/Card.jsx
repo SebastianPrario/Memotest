@@ -7,11 +7,17 @@ function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, 
    const cardColor = () => {
    if (view===true && disable===true) return 'divCardIgual'
    if (view===true) return 'divCard'
-   else return 'divCardFalse'
+   else return 'fli-card-inner'
    }
+   const cardImage = () => {
+      if (view===true && disable===true) return 
+      if (view===true) return 
+      else return ( <img src={image} height={'150px'}   alt="number" />)
+      }
+
 
    const handleChange = (number, id) =>{
-      console.log(number, id)
+     
       click%2 === 0 && firstCard(number,id)
       click%2 === 1 && secondCard(number,id)
 
@@ -19,12 +25,13 @@ function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, 
    }
    return (
 
-      <div className="card">
-         <button onClick={(
-
-         )=>handleChange(number,id)} disabled={disable} className={cardColor()}  >
-              {number}
+      <div className="flip-card ">
+     
+         <button  onClick={(
+         )=>handleChange(number,id)}  className={cardColor()}  >
+           <div >  {cardImage()} </div>
         </button>
+     
       </div>
    )
 }
