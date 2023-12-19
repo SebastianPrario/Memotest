@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 
  
-function Card ({number,image,disable,view , firstCard  ,click, secondCard, par}) {
+function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, id}) {
  
 
    const cardColor = () => {
@@ -10,18 +10,20 @@ function Card ({number,image,disable,view , firstCard  ,click, secondCard, par})
    else return 'divCardFalse'
    }
 
-   const handleChange = (number) =>{
-
-      click%2 === 0 && firstCard(number)
-      click%2 === 1 && secondCard(number)
+   const handleChange = (number, id) =>{
+      console.log(number, id)
+      click%2 === 0 && firstCard(number,id)
+      click%2 === 1 && secondCard(number,id)
 
 
    }
    return (
 
       <div className="card">
-         <button onClick={()=>handleChange(number)} disabled={disable} className={cardColor()}  >
-              {par}
+         <button onClick={(
+
+         )=>handleChange(number,id)} disabled={disable} className={cardColor()}  >
+              {number}
         </button>
       </div>
    )

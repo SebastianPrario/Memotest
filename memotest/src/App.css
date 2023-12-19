@@ -33,8 +33,17 @@
   }
 }
 
+.conteiner {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  
+}
+
+
+
 .card {
-  padding: 1px;
+  padding: 10px;
   justify-content: center;
   align-content: center;
   text-align: center;
@@ -45,10 +54,10 @@
 }
 
 .divCard {
-  display: flex;
+  display: grid;
   flex-direction: column;
   margin-top: 10px;
-  padding: auto;
+  padding: 10px;
   height: 200px;
   width: 200px;
   background-color: red;

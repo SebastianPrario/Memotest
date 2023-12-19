@@ -6,19 +6,21 @@ import arrayCard from "../../Json/arrayCard"
  
 function Container () {
 
-    const [ disable , setDisable ] = useState (false)
+    const repeticiones = 6
+
+    const [ count , setCount ] = useState ()
     const [ click , setClick ] = useState (0)
-    const [ times , setTimes ] = useState (20)
+    const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
-    const [ arrayCards , setArrayCards ] = useState (arrayCard)
+    const [ arrayCards , setArrayCards ] = useState ()
    
    
    
-    const firstCard = (number) => {
-             
+    const firstCard = (number , id ) => {
+     
         setTimes(times-1)
         setClick(click+1)
-        setFirstCards(arrayCard[number-1]) 
+        setFirstCards(arrayCard[id]) 
         
         const nextCard = arrayCards.map(card => {
             if (card.number !== number) {
@@ -33,16 +35,44 @@ function Container () {
         setArrayCards(nextCard)
     }
 
-    const compara = (number) => {
+    const reset =  () =>  {
+      
+        const newArray =  arrayCard.sort(() => Math.random() - 0.5);
+        setArrayCards(newArray)
+        setTimes(8)
+        setClick(0)
+        setCount(2)
+    }
+   
      
-        if (firstCards.par === arrayCards[number-1].par) {
+    const turnos = () => {
+      
+        if (times -1  === 0) {alert ('GAME OVER')
+        alert ('nuevo juego')
+        reset()
+        }
+    }
+  
+    const compara = (number, id) => {
+     
+        if (firstCards.par === arrayCards[id].par) {
             alert ( 'iguales')
+            
             const nextCard = arrayCards.map(card => {
                 if (card.number === firstCards.number || card.number === number) {
                 return  { ...card, view:true, disable:true };
                 } else {return card }
             })
             setArrayCards(nextCard)
+            setCount ( count + 2) 
+            console.log(count)  
+            if( count === 8 ) { 
+                alert ('ganaste')
+                return reset()
+            
+            }
+                
+
         } else { 
             alert ('distintos')
             setFirstCards()
@@ -53,11 +83,13 @@ function Container () {
             })
             setArrayCards(nextCard)
         }
-
-        setFirstCards()
+             setFirstCards()
+             turnos()
+      
+      
     }
 
-    const secondCard = (number) => {
+    const secondCard = (number , id ) => {
       
         if (number == firstCards.number) { return  alert('no puede elegir el mismo')}
 
@@ -77,11 +109,13 @@ function Container () {
         setArrayCards(nextCard)
 
         setTimeout(() => {
-           compara(number) 
+           compara(number ,id) 
         }, 1000);
     }
    
-   
+   useEffect (() => { reset() } , [])
+ 
+
 
     return (
 
@@ -89,10 +123,12 @@ function Container () {
             <p>CARD COMPONENT</p>
             <h2>{times}</h2>
             <hr></hr>
-            {arrayCards.map (elem => 
+            <div className="conteiner">
+            {arrayCards?.map ((elem ,index) => 
                 
                 (  <Card 
                     key= {elem.number}
+                    id = {index}
                     number = {elem.number}
                     image = {elem.image}
                     view =  {elem.view}
@@ -104,6 +140,7 @@ function Container () {
                     />
                 )
             )}
+            </div>
         </div>
     )
 }
