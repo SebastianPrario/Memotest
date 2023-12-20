@@ -12,7 +12,7 @@ function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, 
    const cardImage = () => {
       if (view===true && disable===true) return 
       if (view===true) return 
-      else return ( <img src={image} height={'150px'}   alt="number" />)
+      else return ( <img src={image} className="img"   alt="number" />)
       }
 
 

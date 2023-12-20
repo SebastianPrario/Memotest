@@ -6,8 +6,8 @@ import arrayCard from "../../Json/arrayCard"
  
 function Container () {
 
-    const repeticiones = 25
-
+    const repeticiones = 20
+    
     const [ count , setCount ] = useState ()
     const [ click , setClick ] = useState (0)
     const [ times , setTimes ] = useState (repeticiones)
@@ -65,8 +65,7 @@ function Container () {
             })
             setArrayCards(nextCard)
             setCount ( count + 2) 
-            console.log(count)  
-            if( count === 8 ) { 
+            if( count === arrayCard.length ) { 
                 alert ('ganaste')
                 return reset()
             
@@ -119,7 +118,7 @@ function Container () {
 
     return (
 
-        <div>
+        <div className="bodyCard">
             <p>número de intentos</p>
             <h2>{times}</h2>
             <hr></hr>
