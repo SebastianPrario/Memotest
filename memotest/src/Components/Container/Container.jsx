@@ -1,6 +1,25 @@
 import React, { useEffect, useState } from "react"
 import Card from "../Card/Card"
 import arrayCard from "../../Json/arrayCard"
+import Swal from "sweetalert2"
+
+
+
+const mostrarAlerta  = (title,icon) => {
+
+    Swal.fire({
+        title: title,
+        icon: icon,
+        timer: "1000"
+    })
+}
+
+const mostrarGanaste = () => {Swal.fire({
+    imageUrl: "https://thumbs.dreamstime.com/z/ganaste-el-texto-de-la-pancarta-con-un-fondo-c%C3%B3mico-azul-ilustraci%C3%B3n-del-vector-168164092.jpg",
+    imageWidth: 400,
+    imageHeight: 200,
+    imageAlt: "Custom image"
+  })};
 
 
  
@@ -47,16 +66,21 @@ function Container () {
      
     const turnos = () => {
       
-        if (times -1  === 0) {alert ('GAME OVER')
-        alert ('nuevo juego')
-        reset()
+        if (times -1  === 0) 
+            {   Swal.fire({
+            imageUrl: "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"})
+            reset()
+           
         }
     }
   
     const compara = (number, id) => {
      
         if (firstCards.par === arrayCards[id].par) {
-            alert ( 'iguales')
+            mostrarAlerta('Iguales!','success')
             
             const nextCard = arrayCards.map(card => {
                 if (card.number === firstCards.number || card.number === number) {
@@ -66,19 +90,20 @@ function Container () {
             setArrayCards(nextCard)
             setCount ( count + 2) 
             if( count === arrayCard.length ) { 
-                alert ('ganaste')
+                mostrarGanaste()
                 return reset()
             
             }
                 
 
         } else { 
-            alert ('distintos')
+          
+            mostrarAlerta('Distintos!','error')
             setFirstCards()
             const nextCard = arrayCards.map(card => {
             if (card.number === firstCards.number || card.number === number) {
                 return  { ...card, view:true};
-            } else { return card };               
+            } else { return card }               
             })
             setArrayCards(nextCard)
         }
@@ -90,7 +115,7 @@ function Container () {
 
     const secondCard = (number , id ) => {
       
-        if (number == firstCards.number) { return  alert('no puede elegir el mismo')}
+        if (number == firstCards.number) { return  mostrarAlerta('Repetido!','error')}
 
         setTimes(times-1)
         setClick(click+1)

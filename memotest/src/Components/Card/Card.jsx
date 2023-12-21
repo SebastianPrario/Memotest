@@ -29,7 +29,7 @@ function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, 
      
          <button  onClick={(
          )=>handleChange(number,id)}  className={cardColor()}  >
-           <div >  {cardImage()} </div>
+            {cardImage()}
         </button>
      
       </div>
