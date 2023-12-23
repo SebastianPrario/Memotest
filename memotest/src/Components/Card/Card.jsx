@@ -1,18 +1,19 @@
 import React, { useEffect } from "react"
+import styles from './Card.module.css'
 
  
 function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, id}) {
  
 
    const cardColor = () => {
-   if (view===true && disable===true) return 'divCardIgual'
-   if (view===true) return 'divCard'
-   else return 'fli-card-inner'
+   if (view===true && disable===true) return styles.divCardIgual
+   if (view===true) return styles.divCard
+   else return styles.fliCardInner
    }
    const cardImage = () => {
       if (view===true && disable===true) return 
       if (view===true) return 
-      else return ( <img src={image} className="img"   alt="number" />)
+      else return ( <img src={image} className={styles.img}   alt="number" />)
       }
 
 
@@ -25,7 +26,7 @@ function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, 
    }
    return (
 
-      <div className="flip-card ">
+      <div className={styles.flipCard}>
      
          <button  onClick={(
          )=>handleChange(number,id)}  className={cardColor()}  >

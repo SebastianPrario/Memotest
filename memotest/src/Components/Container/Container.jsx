@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import Card from "../Card/Card"
 import arrayCard from "../../Json/arrayCard"
 import Swal from "sweetalert2"
+import styles from './Container.module.css'
 
 
 
@@ -10,13 +11,15 @@ const mostrarAlerta  = (title,icon) => {
     Swal.fire({
         title: title,
         icon: icon,
-        timer: "1000"
+        timer: "100000",
+     
+
     })
 }
 
 const mostrarGanaste = () => {Swal.fire({
     imageUrl: "https://thumbs.dreamstime.com/z/ganaste-el-texto-de-la-pancarta-con-un-fondo-c%C3%B3mico-azul-ilustraci%C3%B3n-del-vector-168164092.jpg",
-    imageWidth: 400,
+    imageWidth: 300,
     imageHeight: 200,
     imageAlt: "Custom image"
   })};
@@ -69,7 +72,7 @@ function Container () {
         if (times -1  === 0) 
             {   Swal.fire({
             imageUrl: "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg",
-            imageWidth: 400,
+            imageWidth: 300,
             imageHeight: 200,
             imageAlt: "Custom image"})
             reset()
@@ -143,11 +146,11 @@ function Container () {
 
     return (
 
-        <div className="bodyCard">
+        <div className={styles.nav}>
             <p>número de intentos</p>
             <h2>{times}</h2>
             <hr></hr>
-            <div className="conteiner">
+            <div className={styles.container}>
             {arrayCards?.map ((elem ,index) => 
                 
                 (  <Card 

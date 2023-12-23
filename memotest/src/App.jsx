@@ -1,8 +1,8 @@
 import './App.css'
+
 import { Route, Routes } from 'react-router-dom'
 import Container from './Components/Container/Container'
-import LandingPage from './Components/LandingPage'
- 
+import LandingPage from './Components/LandingPage/LandingPage' 
 function App() {
  
   return (

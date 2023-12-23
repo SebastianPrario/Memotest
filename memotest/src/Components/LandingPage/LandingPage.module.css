@@ -1,0 +1,33 @@
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('./../../assets//fondo2.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+   
+}
+
+.button {
+    border-radius: 8px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #faac02;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  
+
+  }
+  
+  .text {
+    text-decoration: none;
+  }
