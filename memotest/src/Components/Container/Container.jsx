@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import Card from "../Card/Card"
 import arrayCard from "../../Json/arrayCard"
+import { GameContext } from "../../contexts/GameContext"
 import Swal from "sweetalert2"
 import styles from './Container.module.css'
 
@@ -29,7 +30,7 @@ const mostrarGanaste = () => {Swal.fire({
 function Container () {
 
     const repeticiones = 20
-    
+    const { cardsArray } = useContext(GameContext);
     const [ count , setCount ] = useState ()
     const [ click , setClick ] = useState (0)
     const [ times , setTimes ] = useState (repeticiones)
@@ -141,6 +142,8 @@ function Container () {
     }
    
    useEffect (() => { reset() } , [])
+
+   console.log(cardsArray, 'context dentro de container')
  
 
 
