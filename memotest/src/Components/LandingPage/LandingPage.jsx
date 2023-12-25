@@ -2,38 +2,54 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './LandingPage.module.css'
 import { GameContext } from '../../contexts/GameContext';
+import arrayCard from '../../Json/arrayCard';
 
 const LandingPage = () => {
     const { cardsArray, setCardsArray } = useContext(GameContext);
 
-    console.log(cardsArray, 'context')
+   
 
     const generateArray = (number) => {
 // Esta funcion te crea un array a partir del numero q le pases, quizas te sirva para hacerlos, podes retornar otra cosa.
-       const newCardsArray =  [...Array(number)].map((item, idx) => {
-           return {
-            name: `test${idx}`
-            }
-        })
+       const newCardsArray =  arrayCard.slice(0,(number))
+    // comentado para la posibilidad de tomar datos de una fuente externa
+    //    .map((item, idx) => {
+          
+    //         console.log(item)
+            
+    //     })
+       
     // setea en el contexto el array para agarrarlo del otro lado, esta funcion es del context para setearlo
-        setCardsArray(newCardsArray)
-        // aca podrias hacer un history.go() derecho a la pagina del juego y sacar el link de abajo.
+        newCardsArray && setCardsArray(newCardsArray)
+      
     }
     
     return (
 
     <div className={styles.landing}>
         <p className='display-1 text-white'><b>MEMOTEST</b></p>
-{/* aca comente el boton para que veas como podes usarlo */}
-        {/* <button className={styles.button}>
-             <Link className={styles.text} to='/container'>empezar</Link>
-        </button> */}
-        <button className={styles.button} onClick={() => generateArray(8)}>
-             <Link className={styles.text} to='/container'>8</Link>
+        <div className="dropdown mb-1">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="true">
+                dificultad
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="value" data-toggle='dropdown'>
+                <li><button className="dropdown-item" type="button" value='facil' onClick={() => {
+                    document.getElementById('dropdownMenu2').innerHTML = 'facil'
+                    generateArray(8)}}>facil</button></li>
+                <li><button className="dropdown-item" type="button" value='medio' onClick={() => {
+                    document.getElementById('dropdownMenu2').innerHTML = 'medio'
+                    generateArray(16)}}>medio</button></li>
+                <li><button className="dropdown-item" type="button" value='dificil' onClick={() =>{
+                     document.getElementById('dropdownMenu2').innerHTML = 'dificil'
+                    generateArray(20)}}>difícil</button></li>
+            </ul>
+        </div>
+
+
+        <button className={styles.button} onClick={() => { !cardsArray && generateArray(8)}}>
+            <Link className={styles.text} to='/container'>empezar</Link>
         </button>
-        <button className={styles.button} onClick={() => generateArray(16)}>
-             <Link className={styles.text} to='/container'>16</Link>
-        </button>
+       
        
     </div>
 )}

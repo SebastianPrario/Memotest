@@ -5,6 +5,7 @@ const GameContext = createContext(null);
 
 // eslint-disable-next-line react/prop-types
 function GameProvider({ children }) {
+   
   const [ cardsArray, setCardsArray ] = useState(null);
 
 
@@ -13,6 +14,7 @@ function GameProvider({ children }) {
       value={{
         cardsArray,
         setCardsArray,
+        sebas: 'sebas'
       }}
     >
       {children}
