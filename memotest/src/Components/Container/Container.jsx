@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import Card from "../Card/Card"
-import arrayCard from "../../Json/arrayCard"
+import { GameContext } from "../../contexts/GameContext"
 import Swal from "sweetalert2"
 import styles from './Container.module.css'
 
@@ -29,12 +29,12 @@ const mostrarGanaste = () => {Swal.fire({
 function Container () {
 
     const repeticiones = 20
-    
+    const { cardsArray } = useContext(GameContext);
     const [ count , setCount ] = useState ()
     const [ click , setClick ] = useState (0)
     const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
-    const [ arrayCards , setArrayCards ] = useState ()
+    const [ cardsArrays , setcardsArrays ] = useState ()
    
    
    
@@ -42,9 +42,9 @@ function Container () {
      
         setTimes(times-1)
         setClick(click+1)
-        setFirstCards(arrayCard[id]) 
+        setFirstCards(cardsArray[id]) 
         
-        const nextCard = arrayCards.map(card => {
+        const nextCard = cardsArrays.map(card => {
             if (card.number !== number) {
                 return card;
             } else {
@@ -54,13 +54,13 @@ function Container () {
             }
         })
     
-        setArrayCards(nextCard)
+        setcardsArrays(nextCard)
     }
 
     const reset =  () =>  {
       
-        const newArray =  arrayCard.sort(() => Math.random() - 0.5);
-        setArrayCards(newArray)
+        const newArray =  cardsArray.sort(() => Math.random() - 0.5);
+        setcardsArrays(newArray)
         setTimes(repeticiones)
         setClick(0)
         setCount(2)
@@ -82,17 +82,17 @@ function Container () {
   
     const compara = (number, id) => {
      
-        if (firstCards.par === arrayCards[id].par) {
+        if (firstCards.par === cardsArrays[id].par) {
             mostrarAlerta('Iguales!','success')
             
-            const nextCard = arrayCards.map(card => {
+            const nextCard = cardsArrays.map(card => {
                 if (card.number === firstCards.number || card.number === number) {
                 return  { ...card, view:true, disable:true };
                 } else {return card }
             })
-            setArrayCards(nextCard)
+            setcardsArrays(nextCard)
             setCount ( count + 2) 
-            if( count === arrayCard.length ) { 
+            if( count === cardsArray.length ) { 
                 mostrarGanaste()
                 return reset()
             
@@ -103,12 +103,12 @@ function Container () {
           
             mostrarAlerta('Distintos!','error')
             setFirstCards()
-            const nextCard = arrayCards.map(card => {
+            const nextCard = cardsArrays.map(card => {
             if (card.number === firstCards.number || card.number === number) {
                 return  { ...card, view:true};
             } else { return card }               
             })
-            setArrayCards(nextCard)
+            setcardsArrays(nextCard)
         }
              setFirstCards()
              turnos()
@@ -124,7 +124,7 @@ function Container () {
         setClick(click+1)
        
         
-        const nextCard = arrayCards.map(card => {
+        const nextCard = cardsArrays.map(card => {
             if (card.number !== number) {
                 return card;
             } else {
@@ -133,7 +133,7 @@ function Container () {
                
             }
         })
-        setArrayCards(nextCard)
+        setcardsArrays(nextCard)
 
         setTimeout(() => {
            compara(number ,id) 
@@ -141,6 +141,8 @@ function Container () {
     }
    
    useEffect (() => { reset() } , [])
+
+   console.log(cardsArray, 'context dentro de container')
  
 
 
@@ -151,7 +153,7 @@ function Container () {
             <h2>{times}</h2>
             <hr></hr>
             <div className={styles.container}>
-            {arrayCards?.map ((elem ,index) => 
+            {cardsArrays?.map ((elem ,index) => 
                 
                 (  <Card 
                     key= {elem.number}
