@@ -31,18 +31,12 @@
     width: 100%;
     height: 100%;
     transition: transform;
-    transition-duration: 1s;
-    transform-style: preserve-3d;
-  
-    
-  
-}
-  
-  .flip-card-inner:hover {
+    transition-duration: 2s;
     transform: rotateY(180deg);
     
+}
   
-  }
+
   
   
   

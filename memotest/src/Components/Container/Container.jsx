@@ -11,7 +11,9 @@ const mostrarAlerta  = (title,icon) => {
     Swal.fire({
         title: title,
         icon: icon,
-        timer: "100000",
+        timer: "1000",
+        showConfirmButton: false,
+        
      
 
     })
@@ -27,11 +29,11 @@ const mostrarGanaste = () => {Swal.fire({
 
  
 function Container () {
-
-    const repeticiones = 20
+    
     const { cardsArray } = useContext(GameContext);
     const [ count , setCount ] = useState ()
     const [ click , setClick ] = useState (0)
+    const repeticiones = cardsArray.length>16 ? 30 : 20
     const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
     const [ cardsArrays , setcardsArrays ] = useState ()
@@ -43,7 +45,7 @@ function Container () {
         setTimes(times-1)
         setClick(click+1)
         setFirstCards(cardsArray[id]) 
-        
+        console.log(number)
         const nextCard = cardsArrays.map(card => {
             if (card.number !== number) {
                 return card;
