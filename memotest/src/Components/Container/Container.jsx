@@ -3,6 +3,7 @@ import Card from "../Card/Card"
 import { GameContext } from "../../contexts/GameContext"
 import Swal from "sweetalert2"
 import styles from './Container.module.css'
+import gameOver from '../../assets/game over.jpg'
 
 
 
@@ -30,9 +31,8 @@ const mostrarGanaste = () => {Swal.fire({
  
 function Container () {
     
-    const { cardsArray } = useContext(GameContext);
-    const [ count , setCount ] = useState ()
-    const [ click , setClick ] = useState (0)
+    const { cardsArray , setCardsArray} = useContext(GameContext);
+    const [ count , setCount ] = useState ()  
     const repeticiones = cardsArray.length>16 ? 30 : 20
     const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
@@ -42,7 +42,9 @@ function Container () {
    
    
     const firstCard = (number , id) => {
-      
+        if (firstCards && number === firstCards.number) return mostrarAlerta('Repetido!','warning')
+        
+        
         setTimes(times-1)
       
         if (!firstCards) {
@@ -57,6 +59,7 @@ function Container () {
     
         }
         else {
+           
             setSecondCards(cardsArray[id])
             const nextCard = cardsArrays.map(card => {
                 if (card.number !== number) {
@@ -76,22 +79,22 @@ function Container () {
         const newArray =  cardsArray.sort(() => Math.random() - 0.5);
         setcardsArrays(newArray)
         setTimes(repeticiones)
-        setClick(0)
         setCount(2)
     }
    
      
-    const turnos = () => {
+    const turnos = async () => {
        
         if (times  === 0) 
-            {   Swal.fire({
-            imageUrl: "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg",
+            { await  Swal.fire({
+            imageUrl: gameOver,
             imageWidth: 300,
-            imageHeight: 200,
+            imageHeight: 300,
+            background: 'blue',
+            showConfirmButton: false,
+            timer: 2000,
             imageAlt: "Custom image"})
-            reset()
-           
-           
+            setCardsArray() //vacia el array y vuelve a la landing page
         }
     }
   
@@ -137,8 +140,16 @@ function Container () {
       
       
     }
-
+    
+    const cardLength  =() => {
+        if (!!cardsArrays){
+        if (cardsArrays.length < 9 ) return styles.small
+        if (cardsArrays.length === 16 ) return styles.medium
+        if (cardsArrays.length === 20 ) return styles.large
+        }
+    }
    
+
    
    useEffect (() => { reset() } , [])
    useEffect (() => {  setTimeout(() => {
@@ -156,7 +167,7 @@ function Container () {
             <h2>{times}</h2>
             </div>
             <hr></hr>
-            <div className={styles.container}>
+            <div className={cardLength()}>
             {cardsArrays?.map ((elem ,index) => 
                 
                 (  <Card 
@@ -168,7 +179,7 @@ function Container () {
                     disable = {elem.disable}
                     firstCard = {firstCard}
                     secondCards = {secondCards}
-                    click={click}
+                    cardsArrays = {cardsArrays}
                     par={elem.par}
                     />
                 )

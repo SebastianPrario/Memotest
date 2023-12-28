@@ -1,9 +1,8 @@
 import styles from './Card.module.css'
 
  
-function Card ({number,image,view , firstCard , secondCards,  par, id}) {
-    
-   secondCards && console.log(secondCards)
+function Card ({number,image,view , firstCard , secondCards,  par, id , cardsArrays}) {
+
 
    const cardColor = () => {
       if (view === 'hidden') return  styles.hidden
@@ -27,7 +26,7 @@ function Card ({number,image,view , firstCard , secondCards,  par, id}) {
 
    return (
 
-      <div className={styles.flipCard}>
+      <div className={styles.Card}>
      
          <button  onClick={(
          )=>handleChange()}  className={cardColor(view)}   disabled={secondCards}>
