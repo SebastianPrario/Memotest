@@ -44,13 +44,7 @@ const LandingPage = () => {
                     generateArray(20)}}>difícil</button></li>
             </ul>
         </div>
-
-
-        <button className={styles.button} onClick={() => { !cardsArray && generateArray(8)}}>
-            <Link className={styles.text} to='/container'>empezar</Link>
-        </button>
-       
-       
+     
     </div>
 )}
 

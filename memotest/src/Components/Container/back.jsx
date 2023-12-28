@@ -36,41 +36,28 @@ function Container () {
     const repeticiones = cardsArray.length>16 ? 30 : 20
     const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
-    const [ secondCards, setSecondCards ] = useState()
     const [ cardsArrays , setcardsArrays ] = useState ()
    
    
    
-    const firstCard = (number , id) => {
-      
-        setTimes(times-1)
-      
-        if (!firstCards) {
-           
-            setFirstCards(cardsArray[id])
-            const nextCard = cardsArrays.map(card => {
-                if (card.number !== number) {
-                    return card;
-                } else return { ...card, view:'visible'}
-            })
-            setcardsArrays(nextCard)
-    
-        }
-        else {
-            setSecondCards(cardsArray[id])
-            const nextCard = cardsArrays.map(card => {
-                if (card.number !== number) {
-                    return card;
-                } else return { ...card, view:'visible'}
-            })
-          
-            setcardsArrays([...nextCard])
-          
+    const firstCard = (number , id ) => {
      
-        }
-      
+        setTimes(times-1)
+        setClick(click+1)
+        setFirstCards(cardsArray[id]) 
+        const nextCard = cardsArrays.map(card => {
+            if (card.number !== number) {
+                return card;
+            } else {
+               if (card.view===true) return { ...card, view:false}
+              else return { ...card , view:true}
+               
+            }
+        })
+    
+        setcardsArrays(nextCard)
     }
-   
+
     const reset =  () =>  {
       
         const newArray =  cardsArray.sort(() => Math.random() - 0.5);
@@ -82,8 +69,8 @@ function Container () {
    
      
     const turnos = () => {
-       
-        if (times  === 0) 
+      
+        if (times -1  === 0) 
             {   Swal.fire({
             imageUrl: "https://portal.33bits.net/wp-content/uploads/2018/12/gameoverphrase.jpg",
             imageWidth: 300,
@@ -91,63 +78,72 @@ function Container () {
             imageAlt: "Custom image"})
             reset()
            
-           
         }
     }
   
-    const compara = () => {
-        if (!firstCards || !secondCards)  return
-        if (firstCards.par === secondCards.par) {
-            
+    const compara = (number, id) => {
+     
+        if (firstCards.par === cardsArrays[id].par) {
             mostrarAlerta('Iguales!','success')
-          
+            
             const nextCard = cardsArrays.map(card => {
-                if (card.view == 'visible') return  { ...card, view: 'disable' }
-                else {return card }
+                if (card.number === firstCards.number || card.number === number) {
+                return  { ...card, view:true, disable:true };
+                } else {return card }
             })
-            
-
             setcardsArrays(nextCard)
-
             setCount ( count + 2) 
-            
             if( count === cardsArray.length ) { 
                 mostrarGanaste()
                 return reset()
+            
             }
                 
 
         } else { 
           
             mostrarAlerta('Distintos!','error')
-           
+            setFirstCards()
             const nextCard = cardsArrays.map(card => {
-            if (card.number === firstCards.number || card.number === secondCards.number) {
-                return  { ...card, view: 'hidden'};
+            if (card.number === firstCards.number || card.number === number) {
+                return  { ...card, view:true};
             } else { return card }               
             })
-            setcardsArrays(nextCard) 
-            
+            setcardsArrays(nextCard)
         }
              setFirstCards()
-             setSecondCards()
              turnos()
-             
-            
       
       
     }
 
-   
+    const secondCard = (number , id ) => {
+      
+        if (number == firstCards.number) { return  mostrarAlerta('Repetido!','error')}
+
+        setTimes(times-1)
+        setClick(click+1)
+       
+        
+        const nextCard = cardsArrays.map(card => {
+            if (card.number !== number) {
+                return card;
+            } else {
+               if (card.view===true) return { ...card, view:false}
+              else return { ...card , view:true}
+               
+            }
+        })
+        setcardsArrays(nextCard)
+
+        setTimeout(() => {
+           compara(number ,id) 
+        }, 1000);
+    }
    
    useEffect (() => { reset() } , [])
-   useEffect (() => {  setTimeout(() => {
-            compara()
 
-           
-
-         }, 1000) } , [firstCards,secondCards])
-     
+  
    return (
 
         <div className={styles.nav}>
@@ -167,7 +163,7 @@ function Container () {
                     view =  {elem.view}
                     disable = {elem.disable}
                     firstCard = {firstCard}
-                    secondCards = {secondCards}
+                    secondCard={secondCard}
                     click={click}
                     par={elem.par}
                     />

@@ -1,34 +1,36 @@
 import styles from './Card.module.css'
 
  
-function Card ({number,image,disable,view , firstCard  ,click, secondCard, par, id}) {
- 
+function Card ({number,image,view , firstCard , secondCards,  par, id}) {
+    
+   secondCards && console.log(secondCards)
 
    const cardColor = () => {
-   if (view===true && disable===true) return styles.divCardIgual
-   if (view) return styles.divCard
-   else return styles.fliCardInner
+      if (view === 'hidden') return  styles.hidden
+      if (view === 'visible') return  styles.visible
+      if (view === 'disable') return styles.disable
+   
    }
    const cardImage = () => {
-      if (view===true && disable===true) return 
-      if (view===true) return 
-      else return ( <img src={image} className={styles.img}   alt="number" />)
-      }
 
-
-   const handleChange = (number, id) =>{
-     
-      click%2 === 0 && firstCard(number,id)
-      click%2 === 1 && secondCard(number,id)
-
-
+     if (view=== 'visible') return  <img src={image} className={styles.img}   alt="number" />
    }
+
+
+   const handleChange = () =>{
+
+
+      
+      firstCard(number,id,par)
+   }
+
+
    return (
 
       <div className={styles.flipCard}>
      
          <button  onClick={(
-         )=>handleChange(number,id)}  className={cardColor()}  >
+         )=>handleChange()}  className={cardColor(view)}   disabled={secondCards}>
             {cardImage()}
         </button>
      

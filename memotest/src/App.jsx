@@ -1,17 +1,20 @@
 import './App.css'
-
-import { Route, Routes } from 'react-router-dom'
+import { useContext } from 'react'
+import { GameContext } from "./contexts/GameContext"
 import Container from './Components/Container/Container'
 import LandingPage from './Components/LandingPage/LandingPage' 
+
 function App() {
  
+  const { cardsArray } = useContext(GameContext);
+ 
   return (
-   
-    <Routes>
-      <Route path='/' element={<LandingPage/>}/>
-      <Route path='/container' element={<Container/>}/>
-    </Routes>
-  
+    <div className='div'>
+        
+    { !!cardsArray ? <Container/> : <LandingPage/> }
+
+   </div>
+     
   )
 }
 
