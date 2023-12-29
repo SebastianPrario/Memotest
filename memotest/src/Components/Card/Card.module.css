@@ -26,6 +26,9 @@
     height: 100%;
     animation-name: rotacion;
     animation-duration: 1000ms;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
     }
     @keyframes rotacion {
      from { 
@@ -91,5 +94,5 @@
   height: 190px;
   @media only screen and (max-width: 576px)
   { height: 100%;
-    width: 100%;}
+    width: 109%;}
 }

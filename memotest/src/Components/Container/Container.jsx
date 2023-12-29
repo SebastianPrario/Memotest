@@ -163,7 +163,7 @@ function Container () {
 
         <div className={styles.nav}>
             <div className={styles.nav2}>
-            <p>número de intentos</p>
+            <h9>número de intentos</h9>
             <h2>{times}</h2>
             </div>
             <hr></hr>

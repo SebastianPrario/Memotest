@@ -14,7 +14,6 @@ function GameProvider({ children }) {
       value={{
         cardsArray,
         setCardsArray,
-        sebas: 'sebas'
       }}
     >
       {children}

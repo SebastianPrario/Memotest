@@ -23,9 +23,31 @@ const arrayCard = [
 ]
 
 
-stumble : {
+const stumble = [
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809288/stumble/44a24858c887971dc41e011946d623bc_kudqja.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809288/stumble/44a24858c887971dc41e011946d623bc_kudqja.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809288/stumble/dolly_zlxkxy.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809288/stumble/dolly_zlxkxy.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809288/stumble/twister_xwlygy.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809288/stumble/twister_xwlygy.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809287/stumble/ccde6cb50ef45fd2f23f909b1a9d0209_ykywxs.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809287/stumble/ccde6cb50ef45fd2f23f909b1a9d0209_ykywxs.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809287/stumble/Rain_dllksg.webp',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809287/stumble/Rain_dllksg.webp',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809286/stumble/pessi_gqtji6.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809286/stumble/pessi_gqtji6.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703891586/stumble/stumble-guys-skins-1_z6t8da-banana_ylp7wx.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703891586/stumble/stumble-guys-skins-1_z6t8da-banana_ylp7wx.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809286/stumble/rabbit_vxzzjl.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809286/stumble/rabbit_vxzzjl.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809285/stumble/dinamitron_pbzrwo.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703809285/stumble/dinamitron_pbzrwo.jpg',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703891440/stumble/Infreno_dragon_l7gx6f-dragon_yqcnwj.webp',
+    'https://res.cloudinary.com/dvbb6loxq/image/upload/v1703891440/stumble/Infreno_dragon_l7gx6f-dragon_yqcnwj.webp',
 
+]
 
+export   {
+    arrayCard,
+    stumble 
 }
-
-export default arrayCard
