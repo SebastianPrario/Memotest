@@ -185,6 +185,7 @@ function Container () {
                     firstCard = {firstCard}
                     secondCards = {secondCards}
                     cardsArrays = {cardsArrays}
+                    styles = {cardLength()}
                     par={elem.par}
                     />
                 )

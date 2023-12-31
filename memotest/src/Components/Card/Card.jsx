@@ -1,9 +1,10 @@
 import styles from './Card.module.css'
 
  
-function Card ({number,image,view , firstCard , secondCards,  par, id , cardsArrays}) {
+function Card ({number,image,view , firstCard , secondCards,  par, id ,cardsArrays}) {
 
 
+   console.log(cardsArrays.length)
    const cardColor = () => {
       if (view === 'hidden') return  styles.hidden
       if (view === 'visible') return  styles.visible
@@ -26,7 +27,7 @@ function Card ({number,image,view , firstCard , secondCards,  par, id , cardsArr
 
    return (
 
-      <div className={styles.Card}>
+      <div className={cardsArrays.length<9 ? styles.smallCard : styles.card}>
      
          <button  onClick={(
          )=>handleChange()}  className={cardColor(view)}   disabled={secondCards}>

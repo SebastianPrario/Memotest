@@ -51,7 +51,7 @@ const LandingPage = () => {
     const generateArray = (number) => {
        const newCardsArray =  arrayCard.slice(0,(number)).map((item, idx) => {
        if (tematica==='futbol') return item
-       if (tematica==='stumble') { return {...item ,image : getFotos[idx]}}
+       if (tematica==='stumble') { return {...item ,image : stumble[idx]}}
        if (tematica==='personalizar') { return {...item ,image : getFotos[idx]}}})
        newCardsArray && setCardsArray(newCardsArray)
     }
@@ -76,7 +76,6 @@ const LandingPage = () => {
                  <li><button className="dropdown-item" type="button" value='personalizar' onClick={() => {
                     document.getElementById('dropdownMenu1').innerHTML = 'personalizado'
                     mostrarSwal()
-                    
                     setTematica('personalizar')}}>personalizar</button></li>
 
             </ul>
