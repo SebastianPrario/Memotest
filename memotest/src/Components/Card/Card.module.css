@@ -93,6 +93,11 @@
 .img {
   height: 190px;
   @media only screen and (max-width: 576px)
-  { height: 100%;
-    width: 109%;}
+    { height: 76px;
+    width: 76px;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+  }
 }
