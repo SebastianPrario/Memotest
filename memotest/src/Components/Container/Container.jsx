@@ -20,12 +20,18 @@ const mostrarAlerta  = (title,icon) => {
     })
 }
 
-const mostrarGanaste = () => {Swal.fire({
+const mostrarGanaste = async (setCardsArray) => {
+    await Swal.fire({
     imageUrl: "https://thumbs.dreamstime.com/z/ganaste-el-texto-de-la-pancarta-con-un-fondo-c%C3%B3mico-azul-ilustraci%C3%B3n-del-vector-168164092.jpg",
     imageWidth: 300,
     imageHeight: 200,
-    imageAlt: "Custom image"
-  })};
+    showConfirmButton: false,
+    timer: 2000,
+    imageAlt: "Custom image",
+    }) 
+    setCardsArray()
+   
+};
 
 
  
@@ -43,8 +49,7 @@ function Container () {
    
     const firstCard = (number , id) => {
         if (firstCards && number === firstCards.number) return mostrarAlerta('Repetido!','warning')
-        
-        
+               
         setTimes(times-1)
       
         if (!firstCards) {
@@ -115,7 +120,7 @@ function Container () {
             setCount ( count + 2) 
             
             if( count === cardsArray.length ) { 
-                mostrarGanaste()
+                mostrarGanaste(setCardsArray())
                 return reset()
             }
                 
