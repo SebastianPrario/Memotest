@@ -20,7 +20,8 @@
 }
   
 .smallCard {
-  margin: 10px;
+  margin: 0px;
+  padding-left: 0px;
   height: 300px;
   width: 300px;
   background-color: rgb(255, 255, 255);
@@ -29,6 +30,9 @@
   perspective: 1000px;
   
   img {
+
+    margin-left: 0px;
+    padding-left: 0px;
     height: 190px;
     width: 190px;
     @media only screen and (max-width: 576px)
@@ -50,7 +54,7 @@
   }
   
   img {
-    margin-left: 2%;
+    margin-left: 0%;
     height: 100%;
     width: 100%;
     @media only screen and (max-width: 576px)
