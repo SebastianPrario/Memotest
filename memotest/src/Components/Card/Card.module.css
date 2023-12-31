@@ -11,7 +11,6 @@
       background-color: rgb(255, 255, 255);
       margin-left: 0px;
       padding-left: 0px;
-      padding-right: 0px;
       width: 80px;
       height: 80px;
        
@@ -36,7 +35,7 @@
     width: 190px;
     @media only screen and (max-width: 576px)
       { height: 106px;
-      width: 106px;
+        width: 106px;
   
     }
   }
@@ -46,7 +45,6 @@
     background-color: rgb(255, 255, 255);
     margin-left: 0px;
     padding-left: 0px;
-    padding-right: 0px;
     width: 120px;
     height: 120px;
      
