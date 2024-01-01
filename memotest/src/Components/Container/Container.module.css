@@ -4,16 +4,20 @@
   align-content: center;
   justify-content: center;
   text-align: center;
-  margin-left: 10%;
-  border-radius: 0,0,0,0;
+  background-image: url(./../../assets/mesa.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
 
   @media only screen and (max-width: 576px){
     display: flex;
     flex-direction: column;
-    align-content: center;
+   
     justify-content: center;
     text-align: center;
-    margin-left: 5%;
+    
+    height: 100vh;
+   
   }
 
 }
@@ -27,44 +31,33 @@
     justify-content:space-around;
     align-items:center;
     margin-top: 5%;
-    margin-left: 5%;
-    
-    
-
+    margin-left: 1%;
+ 
   } 
 }
 
 .large {
   width: 100%;
   display: grid;
-  display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-left:inherit;
-  background-color: black;
-  overflow: hidden;
-  margin-left: 0%;
+  margin-left: 3%;
     
   @media only screen and (max-width: 576px)
   { 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    gap: 0px;
-    margin: auto;
+    margin: 1%;
  
   }
 }
 
 .medium {
-  width: 100%;
-  display: grid;
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-left:inherit;
-  background-color: black;
-  overflow: hidden;
-  margin-left: 0%;
-  padding-left: 0px;
+  margin-left:5%;
+  gap: 10px;
   border-radius: 0,0,0,0;
     
   @media only screen and (max-width: 576px)
@@ -72,7 +65,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    gap: 0px;
+    margin-left: 3%;
      
   }
 }
@@ -81,20 +74,17 @@
 .small {
   display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    gap: 0px;
-    background-color: black;
-    overflow: hidden;
-    margin-left: 0%;
+    gap: 10px;
+    margin-left: 5%;
        
   @media only screen and (max-width: 576px)
   { 
-     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    gap: 0px;
-    padding-left: 2%;
-    margin-left: 70px;
+    gap: 10px;
+    margin-left: 10%;
+  
+   
+
  
   }
 }

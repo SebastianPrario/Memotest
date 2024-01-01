@@ -39,7 +39,7 @@ function Container () {
     
     const { cardsArray , setCardsArray} = useContext(GameContext);
     const [ count , setCount ] = useState ()  
-    const repeticiones = cardsArray.length>16 ? 30 : 20
+    const repeticiones = cardsArray.length>16 ? 40 : 20
     const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
     const [ secondCards, setSecondCards ] = useState()
@@ -168,7 +168,7 @@ function Container () {
 
         <div className={styles.nav}>
             <div className={styles.nav2}>
-            <p>número de intentos</p>
+            <p className="mt-3 display-6">número de intentos</p>
             <h2>{times}</h2>
             </div>
             <hr></hr>

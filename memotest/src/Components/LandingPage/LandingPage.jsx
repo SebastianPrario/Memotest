@@ -81,7 +81,7 @@ const LandingPage = () => {
             </ul>
         </div>
         <div className="dropdown mb-1">
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="true">
+            <button className="btn btn-secondary dropdown-toggle" disabled={!tematica} type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="true">
                 dificultad
             </button>
             <ul className="dropdown-menu" aria-labelledby="value" data-toggle='dropdown'>
