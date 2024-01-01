@@ -12,11 +12,9 @@
   @media only screen and (max-width: 576px){
     display: flex;
     flex-direction: column;
-   
     justify-content: center;
     text-align: center;
-    
-    height: 100vh;
+        height: 100vh;
    
   }
 
@@ -74,11 +72,13 @@
   display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    overflow: hidden;
     margin-left: 5%;
        
   @media only screen and (max-width: 576px)
   { 
     grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
     gap: 10px;
     margin-left: 10%;
   

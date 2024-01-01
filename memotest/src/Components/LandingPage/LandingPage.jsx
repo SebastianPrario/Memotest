@@ -1,18 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './LandingPage.module.css'
 import { GameContext } from '../../contexts/GameContext';
 import {arrayCard, stumble} from '../../Json/arrayCard';
 import axios from 'axios';
-import { useEffect } from 'react';
 import Swal from "sweetalert2"
-
-
-
-
-
-  
-  
   
 const LandingPage = () => {
    
@@ -25,20 +16,16 @@ const LandingPage = () => {
             title: 'Elige una categoria',
             input: 'select',
             inputOptions: {
-            'categorias': {
-                river: 'Rios',
+           
+                nature: 'Naturaleza',
                 person: 'Personas',
                 city: 'Ciudades',
-                animals: 'Animales'
-            },
-            'Comidas': {
+                animals: 'Animales',
                 fruit: 'Frutas',
                 vegetables: 'Verduras',
+                landscapes: 'Paisajes',
             },
-            'landscapes': 'Paisajes',
-           
-            },
-            inputPlaceholder: 'Elige una categoria',
+            inputPlaceholder: 'Elige una categoría',
             showCancelButton: true,
         })
         const url = `https://api.unsplash.com/search/photos?page=1&w=150&dpr=2&query=${selection}&client_id=4cpFHxYChXr2YCo9lOzilITP7Bk_dn-UpIIS2wj0xQQ`
@@ -63,20 +50,20 @@ const LandingPage = () => {
         <p className='display-1 text-white'><b>MEMOTEST</b></p>
         <div className="dropdown mb-1">
             <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="true">
-               Categoria
+               Categoría
             </button>
             <ul className="dropdown-menu" aria-labelledby="value" data-toggle='dropdown'>
-                <li><button className="dropdown-item" type="button" value='futbol' onClick={() =>{
-                    document.getElementById('dropdownMenu1').innerHTML = 'futbol'
+                <li><button className="dropdown-item" type="button" value='Fútbol' onClick={() =>{
+                    document.getElementById('dropdownMenu1').innerHTML = 'Fútbol'
                     setTematica('futbol')}}
-                >futbol</button></li>
+                >Fútbol</button></li>
                 <li><button className="dropdown-item" type="button" value='stumble' onClick={() => {
-                    document.getElementById('dropdownMenu1').innerHTML = 'stumble'
-                    setTematica('stumble')}}>stumble</button></li>
+                    document.getElementById('dropdownMenu1').innerHTML = 'Stumble'
+                    setTematica('stumble')}}>Stumble</button></li>
                  <li><button className="dropdown-item" type="button" value='personalizar' onClick={() => {
                     document.getElementById('dropdownMenu1').innerHTML = 'personalizado'
                     mostrarSwal()
-                    setTematica('personalizar')}}>personalizar</button></li>
+                    setTematica('personalizar')}}>Personalizar</button></li>
 
             </ul>
         </div>
@@ -86,13 +73,13 @@ const LandingPage = () => {
             </button>
             <ul className="dropdown-menu" aria-labelledby="value" data-toggle='dropdown'>
                 <li><button className="dropdown-item" type="button" value='facil' onClick={() => {
-                    document.getElementById('dropdownMenu2').innerHTML = 'facil'
-                    generateArray(8)}}>facil</button></li>
+                    document.getElementById('dropdownMenu2').innerHTML = 'fácil'
+                    generateArray(8)}}>fácil</button></li>
                 <li><button className="dropdown-item" type="button" value='medio' onClick={() => {
                     document.getElementById('dropdownMenu2').innerHTML = 'medio'
                     generateArray(16)}}>medio</button></li>
                 <li><button className="dropdown-item" type="button" value='dificil' onClick={() =>{
-                     document.getElementById('dropdownMenu2').innerHTML = 'dificil'
+                     document.getElementById('dropdownMenu2').innerHTML = 'difícil'
                     generateArray(20)}}>difícil</button></li>
             </ul>
         </div>
