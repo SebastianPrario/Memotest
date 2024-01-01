@@ -39,7 +39,7 @@ function Container () {
     
     const { cardsArray , setCardsArray} = useContext(GameContext);
     const [ count , setCount ] = useState ()  
-    const repeticiones = cardsArray.length>16 ? 40 : 20
+    const repeticiones = cardsArray.length>15 ? 40 : 20
     const [ times , setTimes ] = useState (repeticiones)
     const [ firstCards, setFirstCards ] = useState()
     const [ secondCards, setSecondCards ] = useState()
