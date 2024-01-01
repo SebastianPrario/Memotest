@@ -1,8 +1,8 @@
 const arrayCard = [ 
     { number: 1 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540794/futbol/024cc731-73d1-4148-b711-57ce84ff8423_source-aspect-ratio_default_1060638_siypgr.webp" , view: 'hidden' , disable: false , par: 1},
     { number: 2 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540794/futbol/024cc731-73d1-4148-b711-57ce84ff8423_source-aspect-ratio_default_1060638_siypgr.webp" , view: 'hidden' , disable: false , par: 1},
-    { number: 3 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540568/futbol/cce1e7be-34b0-4f55-86c6-76eee69fde17_source-aspect-ratio_default_1060691_mogk0l.webp" , view: 'hidden' , disable: false , par: 2},
-    { number: 4 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540568/futbol/cce1e7be-34b0-4f55-86c6-76eee69fde17_source-aspect-ratio_default_1060691_mogk0l.webp" , view: 'hidden' , disable: false , par: 2},
+    { number: 3 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540824/futbol/cce1e7be-34b0-4f55-86c6-76eee69fde17_source-aspect-ratio_default_1060691_krjmxe.webp" , view: 'hidden' , disable: false , par: 2},
+    { number: 4 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540824/futbol/cce1e7be-34b0-4f55-86c6-76eee69fde17_source-aspect-ratio_default_1060691_krjmxe.webp" , view: 'hidden' , disable: false , par: 2},
     { number: 5 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540802/futbol/71bbab87-68c4-4835-b471-3dee76dd9aff_source-aspect-ratio_default_1060672_klsiuh.webp" , view: 'hidden' , disable: false , par: 3},
     { number: 6 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540802/futbol/71bbab87-68c4-4835-b471-3dee76dd9aff_source-aspect-ratio_default_1060672_klsiuh.webp" , view: 'hidden' , disable: false , par: 3},
     { number: 7 , image: "https://res.cloudinary.com/dvbb6loxq/image/upload/v1703540806/futbol/99e52be0-f9b4-4159-a37b-cc302b17bf71_source-aspect-ratio_default_1060681_kynmiz.webp" , view: 'hidden' , disable: false , par: 4},
