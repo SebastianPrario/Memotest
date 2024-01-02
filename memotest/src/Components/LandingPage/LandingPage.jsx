@@ -9,8 +9,9 @@ const LandingPage = () => {
    
     const { cardsArray, setCardsArray } = useContext(GameContext);
     const [ tematica ,setTematica ] = useState ()
+    const [ arrayLength , setArrayLength] = useState()
     const [ getFotos ,setGetFotos ] = useState ()
-
+   console.log(arrayLength)
     async function mostrarSwal() {
         const {value : selection }= await Swal.fire({
             title: 'Elige una categoria',
@@ -41,6 +42,7 @@ const LandingPage = () => {
        if (tematica==='stumble') { return {...item ,image : stumble[idx]}}
        if (tematica==='personalizar') { return {...item ,image : getFotos[idx]}}})
        newCardsArray && setCardsArray(newCardsArray)
+       
     }
        
    
@@ -68,21 +70,23 @@ const LandingPage = () => {
             </ul>
         </div>
         <div className="dropdown mb-1">
-            <button className="btn btn-secondary dropdown-toggle" disabled={!tematica} type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="true">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="true">
                 dificultad
             </button>
             <ul className="dropdown-menu" aria-labelledby="value" data-toggle='dropdown'>
                 <li><button className="dropdown-item" type="button" value='facil' onClick={() => {
                     document.getElementById('dropdownMenu2').innerHTML = 'fácil'
-                    generateArray(8)}}>fácil</button></li>
+                    setArrayLength(8)}}>fácil</button></li>
                 <li><button className="dropdown-item" type="button" value='medio' onClick={() => {
                     document.getElementById('dropdownMenu2').innerHTML = 'medio'
-                    generateArray(16)}}>medio</button></li>
+                    setArrayLength(16)}}>medio</button></li>
                 <li><button className="dropdown-item" type="button" value='dificil' onClick={() =>{
                      document.getElementById('dropdownMenu2').innerHTML = 'difícil'
-                    generateArray(20)}}>difícil</button></li>
+                    setArrayLength(20)}}>difícil</button></li>
             </ul>
         </div>
+        <button type="button" className={styles.btn} onClick={() => generateArray(arrayLength)}  disabled={!tematica || !arrayLength}>
+            <a>EMPEZAR</a></button>
      
     </div>
 )}

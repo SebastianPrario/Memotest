@@ -4,8 +4,17 @@ import { GameContext } from "../../contexts/GameContext"
 import Swal from "sweetalert2"
 import styles from './Container.module.css'
 import gameOver from '../../assets/game over.jpg'
+import Nav from "../Nav/Nav"
 
-
+// algoritmo de Fisher-Yates para mezclar un array de forma aleatoria
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [array[i], array[j]] = [array[j], array[i]]; 
+         
+        }
+      return array
+}
 
 const mostrarAlerta  = (title,icon) => {
 
@@ -81,7 +90,8 @@ function Container () {
    
     const reset =  () =>  {
       
-        const newArray =  cardsArray.sort(() => Math.random() - 0.5);
+        const newArray =  shuffleArray(cardsArray);
+        console.log(newArray)
         setcardsArrays(newArray)
         setTimes(repeticiones)
         setCount(2)
@@ -167,10 +177,8 @@ function Container () {
    return (
 
         <div className={styles.nav}>
-            <div className={styles.nav2}>
-            <p className="mt-3 me-2 display-6"><b>número de intentos</b></p>
-            <h2>{times}</h2>
-            </div>
+            <Nav  times={times}
+                   setCardsArray={setCardsArray}/>
             <hr></hr>
             <div className={cardLength()}>
             {cardsArrays?.map ((elem ,index) => 

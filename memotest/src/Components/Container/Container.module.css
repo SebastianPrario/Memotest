@@ -20,23 +20,13 @@
 
 }
 
-.nav2{
 
-  @media only screen and (max-width: 576px)
-  { 
-   
-    display: flex; 
-    justify-content:center;
-    align-items:baseline;
-    margin-top: 5%;
-   
-  } 
-}
 
 .large {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-gap:10px;
   margin-left: 3%;
     
   @media only screen and (max-width: 576px)

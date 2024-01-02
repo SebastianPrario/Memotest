@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'retrogame';
+    src: url('./../../assets//Gameplay.ttf');
+  }
+
+
+.nav{
+
+    display: flex; 
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+    margin-top: 1%;
+    margin-right: 5%;
+}
+
+.h1 {
+    font-family: 'retrogame';
+    font-size: x-large;
+    margin-top: 0;
+    margin-bottom: 0;
+    @media only screen and (max-width: 576px)
+    { 
+    font-size:x-small;
+
+  }
+}
+
+
+
+.div {
+    width: 20%;
+}
+.img {
+    margin-left: 0%;
+    width: 100%;
+    @media only screen and (max-width: 576px)
+      { 
+      width:100%;
+  
+    }
+  }
+.btn  {
+	position: relative;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 30px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #fefefe;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
+}
+
