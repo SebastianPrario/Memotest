@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 const Nav = ({times ,setCardsArray}) => {
     return (
         <div className={styles.nav}>
-            <div ><img src={logo} alt='logo' className={styles.img} /></div>
+            <img src={logo} alt='logo' className={styles.img} />
             <div className={styles.div}>
                 <p className={styles.h1}>numero de  intentos : {times} </p>
                 <button  className={styles.btn} onClick={()=> setCardsArray()}>inicio</button>

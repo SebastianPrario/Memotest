@@ -11,7 +11,7 @@ const LandingPage = () => {
     const [ tematica ,setTematica ] = useState ()
     const [ arrayLength , setArrayLength] = useState()
     const [ getFotos ,setGetFotos ] = useState ()
-   console.log(arrayLength)
+    
     async function mostrarSwal() {
         const {value : selection }= await Swal.fire({
             title: 'Elige una categoria',
@@ -35,6 +35,21 @@ const LandingPage = () => {
         setGetFotos(newArr)
        
     }
+    async function mostrarSwal1() {
+        const {value : selection }= await Swal.fire({
+            title: 'Elige una categoria',
+            input: 'text',
+            inputLabel: 'categorias',
+            inputPlaceholder: 'escribe una palabra en ingles',
+            showCancelButton: true,
+        })
+        const url = `https://api.unsplash.com/search/photos?page=1&w=150&dpr=2&query=${selection}&client_id=4cpFHxYChXr2YCo9lOzilITP7Bk_dn-UpIIS2wj0xQQ`
+        const response = await axios(url)
+        const newArr = response && response.data.results.flatMap(elem => [elem.urls.thumb , elem.urls.thumb] )
+        if (newArr.length<1) return Swal.fire("Esa Categoría No existe!");
+        setGetFotos(newArr)
+       
+    }
 
     const generateArray = (number) => {
        const newCardsArray =  arrayCard.slice(0,(number)).map((item, idx) => {
@@ -49,7 +64,7 @@ const LandingPage = () => {
     return (
 
     <div className={styles.landing}>
-        <p className='display-1 text-white'><b>MEMOTEST</b></p>
+        <p className={styles.title}>MEMOTEST</p>
         <div className="dropdown mb-1">
             <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="true">
                Categoría
@@ -62,9 +77,13 @@ const LandingPage = () => {
                 <li><button className="dropdown-item" type="button" value='stumble' onClick={() => {
                     document.getElementById('dropdownMenu1').innerHTML = 'Stumble'
                     setTematica('stumble')}}>Stumble</button></li>
-                 <li><button className="dropdown-item" type="button" value='personalizar' onClick={() => {
+                <li><button className="dropdown-item" type="button" value='personalizar' onClick={() => {
                     document.getElementById('dropdownMenu1').innerHTML = 'personalizado'
                     mostrarSwal()
+                    setTematica('personalizar')}}>Otras Categorías</button></li>
+                <li><button className="dropdown-item" type="button" value='personalizar' onClick={() => {
+                    document.getElementById('dropdownMenu1').innerHTML = 'personalizado'
+                    mostrarSwal1()
                     setTematica('personalizar')}}>Personalizar</button></li>
 
             </ul>

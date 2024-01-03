@@ -13,6 +13,17 @@
    
 }
 
+.title {
+	font-family:cursive;
+	text-shadow:yellow;
+	color:rgb(244, 25, 25);
+	font-size: xx-large;
+	background-color:#faac02;
+	padding: 10px;
+	border-radius: 10px;
+
+}
+
 .button {
     border-radius: 8px;
     width: 200px;
@@ -91,7 +102,7 @@
 	position: absolute;
 	left: 50%;
 	transform: translatex(-50%);
-	bottom: -5px;
+	
 	width: 30px;
 	height: 10px;
 	background: #f00;
@@ -111,7 +122,6 @@
 	position: absolute;
 	left: 50%;
 	transform: translatex(-50%);
-	top: -5px;
 	width: 30px;
 	height: 10px;
 	background: #f00;

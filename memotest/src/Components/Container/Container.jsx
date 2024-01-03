@@ -123,8 +123,7 @@ function Container () {
                 if (card.view == 'visible') return  { ...card, view: 'disable' }
                 else {return card }
             })
-            
-
+           
             setcardsArrays(nextCard)
 
             setCount ( count + 2) 
@@ -169,17 +168,13 @@ function Container () {
    useEffect (() => { reset() } , [])
    useEffect (() => {  setTimeout(() => {
             compara()
-
-           
-
-         }, 1000) } , [firstCards,secondCards])
+        }, 1000) } , [firstCards,secondCards])
      
    return (
 
         <div className={styles.nav}>
             <Nav  times={times}
                    setCardsArray={setCardsArray}/>
-            <hr></hr>
             <div className={cardLength()}>
             {cardsArrays?.map ((elem ,index) => 
                 
