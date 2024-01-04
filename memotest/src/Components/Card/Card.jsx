@@ -1,7 +1,7 @@
 import styles from './Card.module.css'
 
  
-function Card ({number,image,view , firstCard , par, id ,cardsArrays}) {
+function Card ({number,image,view , firstCard ,secondCards, par, id ,cardsArrays}) {
 
 
     const cardColor = () => {
@@ -29,7 +29,7 @@ function Card ({number,image,view , firstCard , par, id ,cardsArrays}) {
       <div className={cardsArrays.length<9 ? styles.smallCard : styles.card}>
      
          <button  onClick={(
-         )=>handleChange()}  className={cardColor(view)}   disabled={view==='disable'}>
+         )=>handleChange()}  className={cardColor(view)}   disabled={secondCards || view==='disable'}>
             {cardImage()}
         </button>
      
