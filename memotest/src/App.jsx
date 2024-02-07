@@ -11,10 +11,8 @@ function App() {
   return (
     <div className='div'>
         
-    { !!cardsArray ? <Container/> : <LandingPage/> }
-
-   </div>
-     
+      { !!cardsArray ? <Container/> : <LandingPage/> }
+    </div>
   )
 }
 

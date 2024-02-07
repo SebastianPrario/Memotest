@@ -1,8 +1,48 @@
-# React + Vite
+# Memotest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Comentarios Generales
 
-Currently, two official plugins are available:
+Esta aplicación ha sido desarrollada con el siguiente Stack:
+- JavaScript
+- React v18
+- React Router DOM v6
+- Bootstrap v5
+- Axios
+- Vite
+- SweetAlert v2
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Primeros Pasos
+
+Instala la aplicación con el siguiente comando:
+
+```bash
+npm install
+```
+
+Ejecutar Aplicación:
+
+```bash
+npm run dev
+```
+
+## Desarrollo del juego
+
+### LandingPage
+
+- Esta pagina permite elegir entre las siguientes categorias:
+
+* Fútbol
+* Stumble
+* Otras Categorías : Naturaleza, Personas ,Cuidades, Animales,Frutas, Verduras y Paisajes.
+* Personalizar:  permite ingresar una palabra para buscar en una api (unsplash.com) imagenes relacionadas con esa palabra. Esta palabra deberá estar en ingles.
+
+ - Dificultad:   facil , medio y dificil. Cada una tiene distintas cantidades de fichas y distintas cantidades de intentos permitidos
+
+ fácil :  8 fichas  -  20 intentos.
+ medio:  16 fichas  -  40 intentos.
+ difícil: 20 fichas - 40 intentos.
+
+deploy : memotest2024.vercel.app
+
+Sebastián Prario - 2024

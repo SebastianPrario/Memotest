@@ -8,21 +8,16 @@ function Card ({number,image,view , firstCard ,secondCards, par, id ,cardsArrays
       if (view === 'hidden') return  styles.hidden
       if (view === 'visible') return  styles.visible
       if (view === 'disable') return styles.disable
-   
    }
+   
    const cardImage = () => {
 
      if (view=== 'visible') return  <img src={image} className={styles.img}   alt="number" />
    }
 
-
    const handleChange = () =>{
-
-
-      
-      firstCard(number,id,par)
+    firstCard(number,id,par)
    }
-
 
    return (
 
